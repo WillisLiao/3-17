@@ -34,6 +34,7 @@ while True:
 
     if re.match(r"[0-9]{2}-[A-Z]{2}", plate) and re.match(r"[0-9]{2}-[A-Z]{3}", plate):
         print('no')
+        # or write to 2-3 or 2-4 由多到少
     elif re.match(r"[0-9]{2}-[A-Z]{2}", plate):
         print('Yes')
         print(liscence1.group(),'added')
