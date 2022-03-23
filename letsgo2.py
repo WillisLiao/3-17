@@ -1,15 +1,19 @@
 import os
+import re
+
+from matplotlib.pyplot import get
 new_old_list = ['原型式號牌', '新式號牌']
 plate_list = ['2-4', '4-2', '2-3', '3-2', '3-3', '2-2',
               '3-4', '3-3', '2-3']
-# create folders and 5 .txt files under each folder
-k= 0
-count = 0
+
 address = os.getcwd()
 for i in range(2):
-    
-    os.mkdir(new_old_list[i])
-    print("folder {} has been created!!".format(new_old_list[i]))
+    if os.path.exists(new_old_list[i]):
+        print("{} fold is existed!".format(new_old_list[i]))
+    else:
+
+        os.mkdir(new_old_list[i])
+        print("folder {} has been created!!".format(new_old_list[i]))
    
 for i in range(6):
     file = open(f"{address}\\{new_old_list[0]}\\{plate_list[i]}.txt", 'w')
@@ -18,6 +22,29 @@ for i in range(6):
 for i in range(3):
     file = open(f"{address}\\{new_old_list[1]}\\{plate_list[i+6]}.txt", 'w')
     print(f'{plate_list[i+6]}.txt has been created')
+count = 0
+while True:
+    plate = input()
+    compile1 = re.compile(r"[0-9]{2,2}-[A-Z]{2,2}")
+
+
+    liscence1 = compile1.search(plate)
+
+
+
+    if re.match(r"[0-9]{2}-[A-Z]{2}", plate) and re.match(r"[0-9]{2}-[A-Z]{3}", plate):
+        print('no')
+    elif re.match(r"[0-9]{2}-[A-Z]{2}", plate):
+        print('Yes')
+        print(liscence1.group(),'added')
+        file = open(f"{address}\\原型式號牌\\2-2.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close()
+    
+    else:
+        print('no')
+
+
 
 
 # writing data to each .txt file    
