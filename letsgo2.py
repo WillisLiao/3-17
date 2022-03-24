@@ -32,10 +32,9 @@ while True:
 
 
 
-    if re.match(r"[0-9]{2}-[A-Z]{2}", plate) and re.match(r"[0-9]{2}-[A-Z]{3}", plate):
-        print('no')
-        # or write to 2-3 or 2-4 由多到少
-    elif re.match(r"[0-9]{2}-[A-Z]{2}", plate):
+
+       
+    if re.fullmatch(r"[0-9]{2}-[A-Z]{2}", plate):
         print('Yes')
         print(liscence1.group(),'added')
         file = open(f"{address}\\原型式號牌\\2-2.txt", 'a+')
