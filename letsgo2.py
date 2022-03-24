@@ -24,68 +24,71 @@ for i in range(3):
     print(f'{plate_list[i+6]}.txt has been created')
 count = 0
 while True:
-    plate = input()
-    compile1 = re.compile(r"[0-9]{2,2}-[A-Z]{2,2}")
-
-
-    liscence1 = compile1.search(plate)
-
+    plate = input("plate: ")
 
 
 
        
-    if re.fullmatch(r"[0-9]{2}-[A-Z]{2}", plate):
+    if re.fullmatch(r"[0-9]{2}-[A-Z]{2}", plate) or re.fullmatch(r"[A-Z]{2}-[0-9]{2}", plate):
         print('Yes')
-        print(liscence1.group(),'added')
+        print(plate,'added')
         file = open(f"{address}\\原型式號牌\\2-2.txt", 'a+')
         file.write(f'\n{plate}')
         file.close()
-    
+    elif re.fullmatch(r"[0-9]{2}-[A-Z]{3}", plate) or re.fullmatch(r"[A-Z]{2}-[0-9]{3}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\原型式號牌\\2-3.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close()
+        file2 = open(f"{address}\\新式號牌\\2-3.txt", 'a+')
+        file2.write(f'\n{plate}')
+        file2.close()
+    elif re.fullmatch(r"[0-9]{2}-[A-Z]{4}", plate) or re.fullmatch(r"[A-Z]{2}-[0-9]{4}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\原型式號牌\\2-4.txt", 'a+') 
+        file.write(f'\n{plate}')
+        file.close()
+    elif re.fullmatch(r"[0-9]{3}-[A-Z]{2}", plate) or re.fullmatch(r"[A-Z]{3}-[0-9]{2}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\原型式號牌\\3-2.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close()
+    elif re.fullmatch(r"[0-9]{3}-[A-Z]{3}", plate) or re.fullmatch(r"[A-Z]{3}-[0-9]{3}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\原型式號牌\\3-3.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close()
+        file2 = open(f"{address}\\新式號牌\\3-3.txt", 'a+')
+        file2.write(f'\n{plate}')
+        file2.close()
+    elif re.fullmatch(r"[0-9]{4}-[A-Z]{2}", plate) or re.fullmatch(r"[A-Z]{4}-[0-9]{2}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\原型式號牌\\4-2.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close()
+
+
+#新式
+
+    elif re.fullmatch(r"[0-9]{3}-[A-Z]{4}", plate) or re.fullmatch(r"[A-Z]{3}-[0-9]{4}", plate):
+        print('Yes')
+        print(plate,'added')
+        file = open(f"{address}\\新式號牌\\3-4.txt", 'a+')
+        file.write(f'\n{plate}')
+        file.close() 
+    elif plate =='--end-input--':
+        break   
     else:
-        print('no')
+        print('no match')
 
 
 
 
-# writing data to each .txt file    
-#    for i in range(5):
- #       fivetimes += 1
- #       
- #       file = open(f"{address}\\{foldName}\\{newDir}_{count+fivetimes :02d}.txt", 'w')
- #       for g in range(3316):
- #           if data_into_list[g].split()[0]==str(count + fivetimes):
- #               file.write(f"{data_into_list[g]}\n")
- #           else:
- #               continue
- #       file.close() 
- #   count+=5
-
-
-#name = list(input('你的名子: '))
-#print(name)
-#for i in range(len(name)):
-#    print(name[i])
-
-#determining if your name is in the list, if yes, 多少筆劃
-#done_list = []
-#n=-1
-#for i in range(len(name)):
-#    n+= 1
-#    while True:
-#        i+=1
-#        if name[n] in data_into_list[i]:
-#            print("word is in the list!")
-#            done_list.append(data_into_list[i].split())
-
-            
- #           break
- #       else:
- #           pass
-
-
-#for i in range(len(done_list)):
-
- #   print(f"{done_list[i][1]}有{done_list[i][0]}筆劃")
 
 
 
